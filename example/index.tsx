@@ -23,11 +23,12 @@ const PermissionModal = redirect => {
         top: '50%',
         left: '50%',
         transform: 'translateX(-50%) translateY(-50%)',
-        padding: '35px',
+        padding: '30px',
         background: '#2ecc40',
         borderRadius: '4px',
         color: 'white',
         fontFamily: 'sans-serif',
+        boxShadow: '0px 0px 30px rgba(0, 0, 0, 0.3)',
       }}
       onClick={redirect}
     >
