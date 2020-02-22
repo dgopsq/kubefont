@@ -31,7 +31,7 @@ const App = () => (
 );
 ```
 
-The `textFont` prop takes the path to your **JSON font**. This font must be served as a static file from your app. To create a JSON font you can use [Facetype.js](https://gero3.github.io/facetype.js/).
+The `textFontUrl` prop takes the path to your **JSON font**. This font must be served as a static file from your app. To create a JSON font you can use [Facetype.js](https://gero3.github.io/facetype.js/).
 
 This component **takes the same size of its parent container**.
 
