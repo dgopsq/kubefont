@@ -2,7 +2,7 @@
 
 ![Example image](https://raw.githubusercontent.com/dgopsq/kubefont/master/helloworld.gif?token=ABNP7I4Z6QTKE32YY7HRXQ26LJ4NG)
 
-A highly-customizable **React** component (written in **Typescript**) using **Three.js** to show a text and a number of random-positioned cubes. It exploits the normal hover event to move the camera while on desktop, and the gyroscope on mobile devices.
+A simple **React** component (written in **Typescript**) using **Three.js** to show a text and a number of random-positioned cubes. It exploits the normal hover event to move the camera while on desktop, and the gyroscope on mobile devices.
 
 This is an experiment I made to test the integration between **React** and **Three.js**. It is not remotely tested enough or fit for a production environment.
 
