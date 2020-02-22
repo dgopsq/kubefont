@@ -255,7 +255,7 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
     container.appendChild(renderer.domElement);
 
     //Text
-    const textFont = await this._loadFont('/font.json');
+    const textFont = await this._loadFont(props.textFontUrl);
     const hexTextColor = this._hexStrToNum(props.textColor);
     const text = this._generateTextMesh(props.text, textFont, hexTextColor);
 
