@@ -65,7 +65,6 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
   /**
    * A function that wraps ThreeJS's FontLoader method
    * using promises
-   * @param font The path to the JSON font
    */
   private _loadFont(font: string) {
     return new Promise<THREE.Font>(resolve => {
@@ -76,9 +75,6 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
 
   /**
    * Generate the text mesh
-   * @param text The text to display
-   * @param font The THREE.Font object
-   * @param color The text color
    */
   private _generateTextMesh(text: string, font: THREE.Font, color: number) {
     const textGeometry = new THREE.TextGeometry(text, {
@@ -103,7 +99,6 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
 
   /**
    * Generate the cube mesh
-   * @param color The cube color
    */
   private _generateCubeMesh(color: number) {
     const cubeGeometry = new THREE.BoxBufferGeometry(20, 20, 20);
@@ -121,9 +116,6 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
 
   /**
    * Randomize the position and rotation of a mesh
-   * @param mesh The mesh to position
-   * @param scattering The scattering multiplier
-   * @param scatteringLevel The scattering level
    */
   private _randomPositionMesh(
     mesh: THREE.Mesh,
@@ -149,7 +141,6 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
 
   /**
    * Handle the mouse movement
-   * @param event The triggered event object
    */
   private _handleMouseMove(event: MouseEvent) {
     const hwx = window.innerWidth / 2;
@@ -170,7 +161,6 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
 
   /**
    * Handle the device orientation (gyroscope)
-   * @param event The triggered event object
    */
   private _handleDeviceMove(event: DeviceOrientationEvent) {
     const alpha = event.alpha || 0;
@@ -225,7 +215,6 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
 
   /**
    * Initialize all the events
-   * @param container The ThreeJS HTML container
    */
   private _setEvents(container: HTMLDivElement) {
     if (this.props.useGyroscope && window.DeviceOrientationEvent)
