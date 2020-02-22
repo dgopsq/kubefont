@@ -24,16 +24,14 @@ const PermissionModal = redirect => {
         left: '50%',
         transform: 'translateX(-50%) translateY(-50%)',
         padding: '35px',
-        background: 'white',
+        background: '#2ecc40',
         borderRadius: '4px',
+        color: 'white',
+        fontFamily: 'sans-serif',
       }}
+      onClick={redirect}
     >
-      <a
-        onClick={redirect}
-        style={{ color: 'black', fontFamily: 'sans-serif' }}
-      >
-        Use the gyroscope
-      </a>
+      Use the gyroscope
     </div>
   )
 }
