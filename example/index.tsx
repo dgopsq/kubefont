@@ -32,7 +32,7 @@ const PermissionModal = redirect => {
         onClick={redirect}
         style={{ color: 'black', fontFamily: 'sans-serif' }}
       >
-        Request permission
+        Use the gyroscope
       </a>
     </div>
   )
