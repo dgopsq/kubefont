@@ -4,7 +4,7 @@ import * as ReactDOM from 'react-dom'
 import Kubefont from '../.'
 
 const App = () => {
-  return <Kubefont text='HELLO WORLD' textFontUrl='./font.json' />
+  return <Kubefont text='HELLO WORLD' textFontUrl='/kubefont/font.json' />
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
