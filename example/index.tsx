@@ -23,12 +23,15 @@ const PermissionModal = redirect => {
         top: '50%',
         left: '50%',
         transform: 'translateX(-50%) translateY(-50%)',
-        padding: '20px',
+        padding: '35px',
         background: 'white',
         borderRadius: '4px',
       }}
     >
-      <a onClick={redirect} style={{ color: '#0074d9' }}>
+      <a
+        onClick={redirect}
+        style={{ color: 'black', fontFamily: 'sans-serif' }}
+      >
         Request permission
       </a>
     </div>
