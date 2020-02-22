@@ -142,8 +142,11 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
    * Handle the mouse movement
    */
   private _handleMouseMove(event: MouseEvent) {
-    const hwx = window.innerWidth / 2;
-    const hwy = window.innerHeight / 2;
+    if (!this.containerRef.current) return;
+    const container = this.containerRef.current;
+
+    const hwx = container.clientWidth / 2;
+    const hwy = container.clientHeight / 2;
 
     const dx = event.clientX - hwx;
     const dy = event.clientY - hwy;
@@ -236,7 +239,7 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
     // Initialize the camera
     const camera = new THREE.PerspectiveCamera(
       75,
-      window.innerWidth / window.innerHeight,
+      container.clientWidth / container.clientHeight,
       0.1,
       1000
     );
@@ -247,8 +250,8 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
     });
 
     renderer.setClearColor(0x000000);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
 
     //Text
@@ -309,18 +312,16 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
     const { props, state } = this;
 
     return (
-      <>
-        <div
-          ref={this.containerRef}
-          className="wrapper"
-          style={{ position: 'relative' }}
-        >
-          {props.useGyroscope &&
-            !state.gyroscopeGranted &&
-            props.GyroscopeRequestComponent &&
-            props.GyroscopeRequestComponent(this._setGyroscopeEvent.bind(this))}
-        </div>
-      </>
+      <div
+        ref={this.containerRef}
+        className="wrapper"
+        style={{ position: 'relative', width: '100%', height: '100%' }}
+      >
+        {props.useGyroscope &&
+          !state.gyroscopeGranted &&
+          props.GyroscopeRequestComponent &&
+          props.GyroscopeRequestComponent(this._setGyroscopeEvent.bind(this))}
+      </div>
     );
   }
 }
