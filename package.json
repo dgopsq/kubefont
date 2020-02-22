@@ -12,7 +12,8 @@
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
-    "documentation": "typedoc src"
+    "documentation": "typedoc src",
+    "publish:demo": "git subtree push --prefix example/dist origin gh-pages"
   },
   "peerDependencies": {
     "react": ">=16"
