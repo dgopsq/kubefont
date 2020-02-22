@@ -31,6 +31,18 @@
   },
   "name": "kubefont",
   "author": "Diego Pasquali",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dgopsq/kubefont.git"
+  },
+  "keywords": [
+    "react",
+    "three.js",
+    "3D",
+    "effect"
+  ],
+  "description": "A React + Three.js component showing text and cubes",
+  "homepage": "https://dgopsq.github.io/kubefont/",
   "module": "dist/kubefont.esm.js",
   "devDependencies": {
     "@types/jest": "^25.1.3",
