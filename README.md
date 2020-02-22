@@ -48,7 +48,7 @@ These are the props accepted by the **Kubefont** component:
 | **cubesColor**                | String   | The cubes color in HEX                                                  | No       | `"#dddddd"` |
 | **particlesNumber**           | Number   | The number of cubes to display                                          | No       | `50`        |
 | **scattering**                | Number   | The cubes' scattering level                                             | No       | `1.5`       |
-| **backgroundColor**           | String   | The environment background color                                        | No       | `"#000000"` |
+| **backgroundColor**           | String   | The environment background color in HEX                                 | No       | `"#000000"` |
 | **useGyroscope**              | Boolean  | Whether to use the gyroscope or the hover event                         | No       | `false`     |
 | **GyroscopeRequestComponent** | Function | Takes a function as a parameter and return a new React node (see below) | No       | -           |
 
@@ -56,7 +56,7 @@ These are the props accepted by the **Kubefont** component:
 
 **To use the gyroscope you HAVE to set this prop!**
 
-This component supports the `DeviceOrientationEvent` ([W3C Documentation](https://www.w3.org/TR/orientation-event/)). In **iOS13** you have to ask for permission to use the gyroscope and this permission must be granted "manually" (E.g. from a `onClick` event) from the user. To handle this particular case this component supports the `GyroscopeRequestComponent` prop, which takes a function as the only parameter and return a new React node. This new React node will be added over the Three.js canvas (you can even position it `absolute`) and triggering the passed function from there will try to obtain the permission to use the gyroscope.
+This component supports the `DeviceOrientationEvent` ([W3C Documentation](https://www.w3.org/TR/orientation-event/)). In **iOS13** you have to ask for permission to use the gyroscope and this permission must be granted "manually" (E.g. from a `onClick` event) from the user. To handle this particular case this component supports the `GyroscopeRequestComponent` prop, which takes a function as the only parameter and return a new React node. This new React node will be added over the Three.js canvas (you can even position it `absolute`) and triggering the passed function from there will try to obtain the permission.
 
 ```js
 import React from 'react';
