@@ -6,6 +6,8 @@ A highly-customizable **React** component (written in **Typescript**) using **Th
 
 This is an experiment I made to test the integration between **React** and **Three.js**. It is not remotely tested enough or fit for a production environment.
 
+[Live example here!](https://dgopsq.github.io/kubefont/)
+
 ## Usage
 
 Install the component using your favourite package manager:
