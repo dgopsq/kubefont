@@ -34,7 +34,7 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
 
   private gyroscopeFirstPosition: THREE.Vector2 | null = null;
 
-  // Initialize the component
+  // Default props
   static defaultProps = {
     textColor: '#dddddd',
     cameraDistance: 400,
@@ -56,7 +56,6 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
   /**
    * Convert a color string in HEX format into
    * an HEX number
-   * @param str Color string in HEX (E.g. #ffffff)
    */
   private _hexStrToNum(str: string) {
     return parseInt(str.substr(1), 16);
