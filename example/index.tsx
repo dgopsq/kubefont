@@ -20,14 +20,16 @@ const PermissionModal = redirect => {
     <div
       style={{
         position: 'absolute',
-        top: '50%',
+        bottom: '5%',
         left: '50%',
-        transform: 'translateX(-50%) translateY(-50%)',
-        padding: '30px',
+        transform: 'translateX(-50%)',
+        padding: '30px 10px',
+        width: '80%',
         background: '#2ecc40',
         borderRadius: '4px',
         color: 'white',
         fontFamily: 'sans-serif',
+        textAlign: 'center',
         boxShadow: '0px 0px 30px rgba(0, 0, 0, 0.3)',
       }}
       onClick={redirect}
@@ -41,7 +43,7 @@ const App = () => {
   return (
     <Kubefont
       text='HELLO WORLD'
-      textFontUrl='/kubefont/font.json'
+      textFontUrl='/font.json'
       useGyroscope={isMobile()}
       GyroscopeRequestComponent={PermissionModal}
     />
