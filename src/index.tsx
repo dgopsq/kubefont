@@ -196,7 +196,7 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
     const requestPermission = (window.DeviceOrientationEvent as any)
       .requestPermission
 
-    if (typeof requestPermission === 'function') {
+    if (typeof requestPermission !== 'undefined') {
       requestPermission()
         .then((permission: string) => {
           if (permission !== 'granted')
@@ -213,7 +213,7 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
         })
         .catch(console.warn)
     } else {
-      //this.setState({ gyroscopeGranted: true })
+      this.setState({ gyroscopeGranted: true })
 
       window.addEventListener(
         'deviceorientation',
