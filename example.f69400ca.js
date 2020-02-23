@@ -70538,21 +70538,24 @@ if (typeof __THREE_DEVTOOLS__ !== 'undefined') {
   /* eslint-enable no-undef */
 
 }
-},{}],"../dist/kubefont.esm.js":[function(require,module,exports) {
-"use strict";
+},{}],"../dist/kubefont.cjs.development.js":[function(require,module,exports) {
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-exports.default = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+function _interopDefault(ex) {
+  return ex && _typeof(ex) === 'object' && 'default' in ex ? ex['default'] : ex;
+}
 
-var _three = require("three");
+var React = require('react');
 
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+var React__default = _interopDefault(React);
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+var THREE = require('three');
 
 function _inheritsLoose(subClass, superClass) {
   subClass.prototype = Object.create(superClass.prototype);
@@ -70570,12 +70573,12 @@ function (_React$Component) {
 
     _this = _React$Component.apply(this, arguments) || this; // The HTML container
 
-    _this.containerRef = (0, _react.createRef)(); // Internal scattering value
+    _this.containerRef = React.createRef(); // Internal scattering value
 
     _this.scatteringLevel = 400; // Coordinates used in the movement events
 
-    _this.devicePosition = new _three.Vector2();
-    _this.deviceRotation = new _three.Vector2();
+    _this.devicePosition = new THREE.Vector2();
+    _this.deviceRotation = new THREE.Vector2();
     _this.gyroscopeFirstPosition = null; // Component state
 
     _this.state = {
@@ -70602,7 +70605,7 @@ function (_React$Component) {
 
   _proto._loadFont = function _loadFont(font) {
     return new Promise(function (resolve) {
-      var loader = new _three.FontLoader();
+      var loader = new THREE.FontLoader();
       loader.load(font, function (font) {
         return resolve(font);
       });
@@ -70614,19 +70617,19 @@ function (_React$Component) {
   ;
 
   _proto._generateTextMesh = function _generateTextMesh(text, font, color) {
-    var textGeometry = new _three.TextGeometry(text, {
+    var textGeometry = new THREE.TextGeometry(text, {
       font: font,
       size: 70,
       height: 10,
       curveSegments: 100,
       bevelEnabled: false
     });
-    var textMaterial = new _three.MeshPhongMaterial({
+    var textMaterial = new THREE.MeshPhongMaterial({
       color: color,
       emissive: color,
       emissiveIntensity: 0.8
     });
-    var textMesh = new _three.Mesh(textGeometry, textMaterial);
+    var textMesh = new THREE.Mesh(textGeometry, textMaterial);
     textMesh.geometry.center();
     return textMesh;
   }
@@ -70636,13 +70639,13 @@ function (_React$Component) {
   ;
 
   _proto._generateCubeMesh = function _generateCubeMesh(color) {
-    var cubeGeometry = new _three.BoxBufferGeometry(20, 20, 20);
-    var cubeMaterial = new _three.MeshLambertMaterial({
+    var cubeGeometry = new THREE.BoxBufferGeometry(20, 20, 20);
+    var cubeMaterial = new THREE.MeshLambertMaterial({
       color: color,
       emissive: color,
       emissiveIntensity: 0.2
     });
-    var cubeMesh = new _three.Mesh(cubeGeometry, cubeMaterial);
+    var cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
     return cubeMesh;
   }
   /**
@@ -70690,7 +70693,7 @@ function (_React$Component) {
     var cy = (beta + 150) % 360;
 
     if (this.gyroscopeFirstPosition === null) {
-      this.gyroscopeFirstPosition = new _three.Vector2(cx, cy);
+      this.gyroscopeFirstPosition = new THREE.Vector2(cx, cy);
     }
 
     var dx = -(cx - this.gyroscopeFirstPosition.x);
@@ -70725,9 +70728,7 @@ function (_React$Component) {
         return Promise.resolve();
       })["catch"](console.warn);
     } else {
-      this.setState({
-        gyroscopeGranted: true
-      });
+      //this.setState({ gyroscopeGranted: true })
       window.addEventListener('deviceorientation', this._handleDeviceMove.bind(this));
     }
   }
@@ -70748,15 +70749,15 @@ function (_React$Component) {
       if (!_this4.containerRef.current) return Promise.resolve();
       var container = _this4.containerRef.current; // Initialize the scene
 
-      var scene = new _three.Scene();
+      var scene = new THREE.Scene();
 
       var hexSceneBackground = _this4._hexStrToNum(props.backgroundColor);
 
-      scene.fog = new _three.FogExp2(hexSceneBackground, 0.0025); // Initialize the camera
+      scene.fog = new THREE.FogExp2(hexSceneBackground, 0.0025); // Initialize the camera
 
-      var camera = new _three.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000); // Initialize the renderer
+      var camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000); // Initialize the renderer
 
-      var renderer = new _three.WebGLRenderer({
+      var renderer = new THREE.WebGLRenderer({
         antialias: true
       });
       renderer.setClearColor(0x000000);
@@ -70786,7 +70787,7 @@ function (_React$Component) {
         } // Lights
 
 
-        var centerLight = new _three.PointLight(0xffffff, 2);
+        var centerLight = new THREE.PointLight(0xffffff, 2);
         centerLight.position.set(camera.position.x, camera.position.y, camera.position.z).normalize();
         scene.add(centerLight); // Animation loop
 
@@ -70811,7 +70812,7 @@ function (_React$Component) {
   _proto.render = function render() {
     var props = this.props,
         state = this.state;
-    return _react.default.createElement("div", {
+    return React__default.createElement("div", {
       ref: this.containerRef,
       className: 'wrapper',
       style: {
@@ -70823,7 +70824,7 @@ function (_React$Component) {
   };
 
   return Kubefont;
-}(_react.default.Component); // Default props
+}(React__default.Component); // Default props
 
 
 Kubefont.defaultProps = {
@@ -70835,9 +70836,16 @@ Kubefont.defaultProps = {
   backgroundColor: '#000000',
   useGyroscope: false
 };
-var _default = Kubefont;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","three":"../node_modules/three/build/three.module.js"}],"index.tsx":[function(require,module,exports) {
+exports.default = Kubefont;
+},{"react":"../node_modules/react/index.js","three":"../node_modules/three/build/three.module.js"}],"../dist/index.js":[function(require,module,exports) {
+'use strict';
+
+if ("development" === 'production') {
+  module.exports = require('./kubefont.cjs.production.min.js');
+} else {
+  module.exports = require('./kubefont.cjs.development.js');
+}
+},{"./kubefont.cjs.development.js":"../dist/kubefont.cjs.development.js"}],"index.tsx":[function(require,module,exports) {
 "use strict";
 
 var __importStar = this && this.__importStar || function (mod) {
@@ -70876,11 +70884,10 @@ var PermissionModal = function PermissionModal(redirect) {
   return React.createElement("div", {
     style: {
       position: 'absolute',
-      bottom: '5%',
-      left: '50%',
-      transform: 'translateX(-50%)',
+      bottom: '20px',
+      left: '20px',
+      right: '20px',
       padding: '30px 10px',
-      width: '80%',
       background: '#2ecc40',
       borderRadius: '4px',
       color: 'white',
@@ -70895,14 +70902,14 @@ var PermissionModal = function PermissionModal(redirect) {
 var App = function App() {
   return React.createElement(_1.default, {
     text: 'HELLO WORLD',
-    textFontUrl: '/font.json',
+    textFontUrl: './font.json',
     useGyroscope: isMobile(),
     GyroscopeRequestComponent: PermissionModal
   });
 };
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('root'));
-},{"react-app-polyfill/ie11":"node_modules/react-app-polyfill/ie11.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/profiling.js","../.":"../dist/kubefont.esm.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react-app-polyfill/ie11":"node_modules/react-app-polyfill/ie11.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/profiling.js","../.":"../dist/index.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -70930,7 +70937,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50912" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55794" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
