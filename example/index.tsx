@@ -20,11 +20,10 @@ const PermissionModal = redirect => {
     <div
       style={{
         position: 'absolute',
-        bottom: '5%',
-        left: '50%',
-        transform: 'translateX(-50%)',
+        bottom: '20px',
+        left: '20px',
+        right: '20px',
         padding: '30px 10px',
-        width: '80%',
         background: '#2ecc40',
         borderRadius: '4px',
         color: 'white',

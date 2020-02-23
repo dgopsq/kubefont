@@ -213,7 +213,7 @@ class Kubefont extends React.Component<IKubefontProps, IKubefontState> {
         })
         .catch(console.warn)
     } else {
-      this.setState({ gyroscopeGranted: true })
+      //this.setState({ gyroscopeGranted: true })
 
       window.addEventListener(
         'deviceorientation',
