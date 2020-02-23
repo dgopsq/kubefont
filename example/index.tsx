@@ -43,7 +43,7 @@ const App = () => {
   return (
     <Kubefont
       text='HELLO WORLD'
-      textFontUrl='/font.json'
+      textFontUrl='./font.json'
       useGyroscope={isMobile()}
       GyroscopeRequestComponent={PermissionModal}
     />
